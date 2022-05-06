@@ -30,17 +30,17 @@ private:
     float montoOfertado;
 
 public:
-    Oferta(){
-        Persona p("Agustin");
+    Oferta() {
+        Persona p;
         ofertante = p;
         montoOfertado = 0.0;
     }
-
     Oferta(Persona newOfrt, float mto) {
         ofertante = newOfrt;
         montoOfertado = mto;
     }
 
+    Persona getOfertante();
     float getMontoOfertado();
     void printOferta();
 };
@@ -54,24 +54,56 @@ private:
 
 public:
     Lote() {
-        Persona per("no-name");
-        Oferta ofertaVacia(per, 0.0);
-
+        Oferta ofertaVacia;
         mayorOferta = ofertaVacia;
+
         numeroLote = 0;
         nombreLote = "Lote without name";
     }
-    Lote(Oferta oferta, int nro, string n) {
-         mayorOferta = oferta;
-         numeroLote = nro;
-         nombreLote = n;
+    Lote(int nro, string n) {
+        Oferta ofertaVacia;
+        mayorOferta = ofertaVacia;
+        numeroLote = nro;
+        nombreLote = n;
     }
 
     Oferta getMayorOferta();
     int getNumeroLote();
     string getNombreLote();
+    
+    void setMayorOferta(Oferta);
+    
     void printLote();
     bool validarMayor(Oferta);
+};
+
+class Subasta {
+private:
+    vector<Lote> lotes;
+    int cantidad;
+
+public:
+    Subasta(int numeroLotes) {
+        Lote l;
+        cantidad = numeroLotes;
+
+        vector<Lote> ls(cantidad, l);
+        lotes = ls;
+    }
+
+    vector<Lote> getLotes();
+    int getCantidadLotes();
+    void mostrarLotes();
+
+    void setLotes(vector<Lote>);
+    void setLote(Lote, int);
+    
+    /**
+     * Este metodo checkea si la oferta ingresada para
+     * un item (Lote) en cuestion es lo suficientemente
+     * buena para reemplazar la oferta actual.
+     */
+    void ingresarOferta(Persona, float, Lote, int);
 };
 
 #endif
