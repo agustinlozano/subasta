@@ -30,10 +30,22 @@ int Subasta :: getCantidadLotes() {
 }
 
 void Subasta :: mostrarLotes() {
-  cout << "Se imprimen los lotes en la subasta: " << endl;
+    cout << "Se imprimen los lotes en la subasta: " << endl;
 
-  for (int i = 0; i < cantidad; i++) {
-      cout << '\n' << '\n' << i+1 << ") -------------" << endl;
-      lotes[i].printLote();
-  }
+    for (int i = 0; i < cantidad; i++) {
+        cout << '\n' << '\n' << i+1 << ") -------------" << endl;
+        lotes[i].printLote();
+    }
+}
+
+void Subasta :: subastar() {
+    cout << '\n' << "Items subastados: " << endl;
+    for (int i = 0; i < cantidad; i++) {
+        Lote lote = lotes[i];
+
+        if (lote.getMayorOferta().getMontoOfertado()) {
+            cout << '\n' << '\n' << "- " << lote.getNombreLote() << " vendido!" << endl;
+            lote.printLote();
+        }
+    }
 }
