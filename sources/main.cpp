@@ -3,7 +3,8 @@
 void siguientePaso() {
   string respuesta = "";
 
-  cout << '\n' << "Para continar ingrese cualquier valor" << endl;
+  cout << '\n' << "Para continar ingrese cualquier valor: " << endl;
+  cout << "> ";
   cin >> respuesta;
 }
 
@@ -36,24 +37,58 @@ int main() {
 
     Subasta techItems(8);
 
-    cout << " - SUBASTA DE ARTICULOS TECNOLOGICOS - " << endl;
+    /* Codigo principal */
+    cout << "SUBASTA DE ARTICULOS TECNOLOGICOS" << endl;
 
     techItems.setLotes(lotes);
 
+    cout << '\n' << "- Se ingresan los siguientes lotes" << endl;
     siguientePaso();
 
-    cout << '\n' << "- Probamos metodo mostrarLotes" << endl;
     techItems.mostrarLotes();
 
+    cout << '\n' << "- Las ofertas se toman de a tres tandas" << '\n'
+    << "  cada tanda toma cuatro ofertas." << endl;
+
+    cout << '\n' << "1) Primera tanda" << endl;
     siguientePaso();
 
-    cout << '\n' << "- Probamos metodo ingresarOferta" << endl;
     techItems.ingresarOferta(p2, 205000.0, lote5, 4);
+    techItems.ingresarOferta(p1, 110000.0, lote2, 1);
+    techItems.ingresarOferta(p3, 240000.0, lote7, 6);
+    techItems.ingresarOferta(p4, 97000.0, lote1, 0);
 
+    cout << '\n' << "Chequeamos los lotes actuales" << endl;
     siguientePaso();
 
-    cout << '\n' << "- Probamos metodo mostrarLotes para checkear la nueva oferta" << endl;
     techItems.mostrarLotes();
+
+    cout << '\n' << "2) Segunda tanda" << endl;
+    siguientePaso();
+
+    techItems.ingresarOferta(p2, 97500.0, lote1, 0);
+    techItems.ingresarOferta(p1, 87000.0, lote6, 5);
+    techItems.ingresarOferta(p3, 65000.0, lote3, 2);
+    techItems.ingresarOferta(p4, 27000.0, lote8, 7);
+
+    cout << '\n' << "Chequeamos los lotes actuales" << endl;
+    siguientePaso();
+
+    techItems.mostrarLotes();
+
+    cout << '\n' << "3) Tercera tanda" << endl;
+    siguientePaso();
+
+    techItems.ingresarOferta(p2, 205005.0, lote5, 4);
+    techItems.ingresarOferta(p1, 250000.0, lote7, 6);
+    techItems.ingresarOferta(p3, 65000.0, lote3, 2);
+    techItems.ingresarOferta(p4, 27000.0, lote8, 7);
+
+    cout << '\n' << "- Las tres tandas de oferta han finalizado!";
+    cout << '\n' << "- Finalmente, se subastan." << endl;
+    siguientePaso();
+
+    techItems.subastar();
 
     return 0;
 }
