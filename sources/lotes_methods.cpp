@@ -22,8 +22,7 @@ string Lote :: getNombreLote() {
 }
 
 void Lote :: printLote() {
-    cout << '\t' << "- Lote" << '\n' << endl;
-    cout << '\t' << "Nombre de lote: " << nombreLote << endl;
+    cout << '\t' << "- " << nombreLote << '\n' << endl;
     cout << '\t' << "Numero de lote: " << numeroLote << '\n' << endl;
     mayorOferta.printOferta();
 }
