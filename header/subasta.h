@@ -70,9 +70,9 @@ public:
     Oferta getMayorOferta();
     int getNumeroLote();
     string getNombreLote();
-    
+
     void setMayorOferta(Oferta);
-    
+
     void printLote();
     bool validarMayor(Oferta);
 };
@@ -97,13 +97,17 @@ public:
 
     void setLotes(vector<Lote>);
     void setLote(Lote, int);
-    
+
     /**
      * Este metodo checkea si la oferta ingresada para
      * un item (Lote) en cuestion es lo suficientemente
      * buena para reemplazar la oferta actual.
      */
     void ingresarOferta(Persona, float, Lote, int);
+    /**
+     * Se inicia la subasta
+     */
+    void subastar();
 };
 
 #endif
