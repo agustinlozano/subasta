@@ -30,7 +30,7 @@ int Subasta :: getCantidadLotes() {
 }
 
 void Subasta :: mostrarLotes() {
-    cout << "Se imprimen los lotes en la subasta: " << endl;
+    cout << '\n' << "Lotes en la subasta: " << endl;
 
     for (int i = 0; i < cantidad; i++) {
         cout << '\n' << '\n' << i+1 << ") -------------" << endl;
